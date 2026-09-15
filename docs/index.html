@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bursa Watch · 股票看盘</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header><div><b>Bursa Watch</b><span>免费股票看盘与本机模拟交易</span></div><small id="updated">正在读取行情…</small></header>
+  <main>
+    <section class="hero"><div><p class="eyebrow">BURSA MALAYSIA · DELAYED DATA</p><h1>看盘、追踪、模拟交易。</h1><p>数据来自 Yahoo Finance；价格可能延迟，仅供学习与模拟用途。</p></div><div class="search"><label for="symbol">股票代码</label><div><input id="symbol" value="1155.KL" placeholder="例如 1155.KL"><button id="search">查询</button></div><small>可尝试：1155.KL、5183.KL、1066.KL、1295.KL</small></div></section>
+    <section class="cards" id="market-cards"></section>
+    <section class="layout"><article class="panel chart"><div class="title"><div><p class="eyebrow">SELECTED SHARE</p><h2 id="company">载入中…</h2><p id="quote">—</p></div><div id="change" class="badge">—</div></div><canvas id="price-chart"></canvas></article>
+    <article class="panel"><p class="eyebrow">LOCAL PAPER PORTFOLIO</p><h2>MYR <span id="cash">100,000.00</span></h2><p>资料只保存在这台装置的浏览器中。</p><div class="trade"><input id="shares" type="number" min="1" value="100"><button id="buy">模拟买入</button><button class="sell" id="sell">模拟卖出</button></div><p id="trade-message" class="message"></p><div class="portfolio"><span>持有股数 <b id="held">0</b></span><span>持仓市值 <b id="value">MYR 0.00</b></span></div></article></section>
+    <section class="panel"><div class="title"><div><p class="eyebrow">WATCHLIST</p><h2>热门马股</h2></div><button id="refresh" class="secondary">更新报价</button></div><div class="table-wrap"><table><thead><tr><th>代码</th><th>公司</th><th>价格</th><th>涨跌</th><th></th></tr></thead><tbody id="watchlist"></tbody></table></div></section>
+  </main><footer>无登入、无云端数据库 · 本机资料会在清除浏览器资料后消失</footer><script src="app.js"></script>
+</body></html>
