@@ -1,0 +1,17 @@
+# Secrets and local configuration
+.env
+
+# Local SQLite databases and runtime data
+*.db
+instance/
+
+# Python environments and generated files
+.venv/
+__pycache__/
+*.py[cod]
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
