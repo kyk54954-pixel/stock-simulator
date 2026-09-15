@@ -1,0 +1,4 @@
+.segmented .side.active.sell {
+  background: var(--danger);
+  color: #1a0808;
+}
