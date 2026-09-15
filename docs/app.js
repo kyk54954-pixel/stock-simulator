@@ -3,7 +3,10 @@ let active='1155.KL', quote=null, chart;
 const state=JSON.parse(localStorage.getItem('bursa-watch')||'{"cash":100000,"positions":{}}');
 const money=n=>'MYR '+Number(n||0).toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});
 async function getQuote(symbol,range='1mo'){
-  const url=`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?range=${range}&interval=1d`;
+  // GitHub Pages cannot call Yahoo Finance directly because of browser CORS rules.
+  // This read-only public proxy lets this client-only demo retrieve delayed data.
+  const yahoo=`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?range=${range}&interval=1d`;
+  const url=`https://api.allorigins.win/raw?url=${encodeURIComponent(yahoo)}`;
   const res=await fetch(url); if(!res.ok)throw new Error('暂时无法读取 Yahoo Finance 行情');
   const data=(await res.json()).chart.result?.[0]; if(!data)throw new Error('找不到该股票代码');
   const meta=data.meta, closes=data.indicators.quote[0].close, timestamps=data.timestamp;
